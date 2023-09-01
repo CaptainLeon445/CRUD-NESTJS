@@ -10,8 +10,11 @@ export class UserService {
     return body;
   }
 
-  update(body: any, param: { userId: number }) {
-    return { body: body, param };
+  update(
+    updateUserDTO: { name: string; email: string },
+    param: { userId: number },
+  ) {
+    return { body: updateUserDTO, param };
   }
 
   getUser(param: { userId: number }) {
