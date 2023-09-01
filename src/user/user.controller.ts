@@ -5,11 +5,10 @@ import {
   Param,
   Patch,
   Post,
-  Req,
+  Body,
 } from '@nestjs/common';
 // import { Request } from 'express';
 import { UserService } from './user.service';
-import { Request } from 'express';
 
 @Controller('user')
 export class UserController {
@@ -21,13 +20,13 @@ export class UserController {
   }
 
   @Post()
-  store(@Req() req: Request) {
-    return this.userService.create(req);
+  store(@Body() body: any) {
+    return this.userService.create(body);
   }
 
   @Patch('/:userId')
-  updateUser(@Req() req: Request, @Param() param: { userId: number }) {
-    return this.userService.update(req, param);
+  updateUser(@Body() body: any, @Param() param: { userId: number }) {
+    return this.userService.update(body, param);
   }
 
   @Get('/:userId')

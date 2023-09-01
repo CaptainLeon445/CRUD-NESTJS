@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { Request } from 'express';
 
 @Injectable()
 export class UserService {
@@ -7,12 +6,12 @@ export class UserService {
     return { name: 'Christopher', email: 'christopher@mail.co' };
   }
 
-  create(req: Request) {
-    return req.body;
+  create(body: any) {
+    return body;
   }
 
-  update(req: Request, param: { userId: number }) {
-    return { body: req.body, param };
+  update(body: any, param: { userId: number }) {
+    return { body: body, param };
   }
 
   getUser(param: { userId: number }) {
