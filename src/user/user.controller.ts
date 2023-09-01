@@ -9,6 +9,8 @@ import {
 } from '@nestjs/common';
 // import { Request } from 'express';
 import { UserService } from './user.service';
+import { UpdateUserDTO } from './dto/update-user.dto';
+import { CreateUserDTO } from './dto/create-user.dto';
 
 @Controller('user')
 export class UserController {
@@ -20,13 +22,13 @@ export class UserController {
   }
 
   @Post()
-  store(@Body() body: any) {
-    return this.userService.create(body);
+  store(@Body() createUserDTO: CreateUserDTO) {
+    return this.userService.create(createUserDTO);
   }
 
   @Patch('/:userId')
   updateUser(
-    @Body() updateUserDTO: { name: string; email: string },
+    @Body() updateUserDTO: UpdateUserDTO,
     @Param() param: { userId: number },
   ) {
     return this.userService.update(updateUserDTO, param);
