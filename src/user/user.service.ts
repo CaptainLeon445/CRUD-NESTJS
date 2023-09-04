@@ -15,7 +15,6 @@ export class UserService {
   update(updateUserDTO: UpdateUserDTO, userId: number) {
     return { body: updateUserDTO, userId };
   }
-
   getUser(userId: number) {
     return userId;
   }
