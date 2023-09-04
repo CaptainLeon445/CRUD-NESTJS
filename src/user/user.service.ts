@@ -21,12 +21,12 @@ export class UserService {
   }
 
   update(updateUserDTO: UpdateUserDTO, userId: number) {
-    return { body: updateUserDTO, userId };
+    return this.userRepository.update(userId, updateUserDTO);
   }
   getUser(userId: number) {
-    return userId;
+    return this.userRepository.findOne({ where: { id: userId } });
   }
   deleteUser(userId: number) {
-    return userId;
+    return this.userRepository.delete(userId)
   }
 }
