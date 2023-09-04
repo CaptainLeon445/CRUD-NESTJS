@@ -17,7 +17,7 @@ export class UserService {
   }
 
   create(createUserDTO: CreateUserDTO) {
-    return createUserDTO;
+    return this.userRepository.save(createUserDTO);
   }
 
   update(updateUserDTO: UpdateUserDTO, userId: number) {
